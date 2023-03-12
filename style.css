@@ -1,0 +1,72 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 100px;
+	position: relative;
+}
+
+.title {
+	width: 100%;
+	background-color: lightblue;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}
+
+form {
+	border: 2px solid black;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	gap: 25px;
+	flex-direction: column;
+	width: 40%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+form h3 {
+	background-color: lightblue;
+	padding: 15px;
+}
+
+.container_child {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.submit {
+	display: flex;
+	align-items: flex-end;
+}
+
+#submit {
+	padding: 6px 12px;
+	background-color: lightblue;
+	border: 0.5px solid black;
+	font-weight: bold;
+}
+
+#submit:hover {
+	transform: scale(1.05);
+	background-color: rgb(175, 247, 247);
+	border: 0.2px solid black;
+}
+
+.input-field input {
+	padding: 5px;
+	width: 70%;
+}
