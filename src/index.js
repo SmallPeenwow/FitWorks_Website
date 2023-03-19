@@ -1,24 +1,26 @@
-const users = [
-	{
-		first_name: 'Camryn',
-		last_name: 'Bowden',
-		phone_number: '071-843 9129',
-		email: 'cam@gmail.com',
-		member_password: 'password21',
-		fitness_goals: 'lose weight and gain fitness',
-		workout_schedule: 'Monday, Tuesday, Friday, Saturday',
-		fitness_level: 'Beginner',
-	},
-	{
-		last_name: 'Dirt',
-		phone_number: '123-456-7890',
-		email: 'joedirta@gmail.com',
-		member_password: 'rockHard247',
-		fitness_goals: 'Big muscles',
-		workout_schedule: 'Tuesday, Thursday, Friday',
-		fitness_level: 'Intermediate',
-	},
-];
+// const users = [
+// 	{
+// 		first_name: 'Camryn',
+// 		last_name: 'Bowden',
+// 		phone_number: '071-843 9129',
+// 		email: 'cam@gmail.com',
+// 		member_password: 'password21',
+// 		fitness_goals: 'lose weight and gain fitness',
+// 		workout_schedule: 'Monday, Tuesday, Friday, Saturday',
+// 		fitness_level: 'Beginner',
+// 	},
+// 	{
+// 		last_name: 'Dirt',
+// 		phone_number: '123-456-7890',
+// 		email: 'joedirta@gmail.com',
+// 		member_password: 'rockHard247',
+// 		fitness_goals: 'Big muscles',
+// 		workout_schedule: 'Tuesday, Thursday, Friday',
+// 		fitness_level: 'Intermediate',
+// 	},
+// ];
+
+import { valuesCollected } from './database.cjs';
 
 const personalMessageArray = ['Have A Great Gym Session!', 'Go Get Those Gains!', 'You Going To Do Great Today!'];
 
@@ -32,15 +34,16 @@ const personalMessage = document.querySelector('#person_message');
 loginForm.addEventListener('submit', (e) => {
 	e.preventDefault();
 
+	console.log(valuesCollected);
+
 	let memberEmail = document.querySelector('#email');
 	let memberPassword = document.querySelector('#password');
 
 	if (isEmptyOrSpaces(memberEmail.value) || isEmptyOrSpaces(memberPassword.value)) {
 		alert('Please enter in your Details');
 	} else {
-		CheckUsers(memberEmail.value, memberPassword.value);
-
-		containerMessage.style.display = 'block';
+		// CheckUsers(memberEmail.value, memberPassword.value);
+		// containerMessage.style.display = 'block';
 	}
 });
 
