@@ -1,12 +1,33 @@
 <?php 
- header("Access-Control-Allow-Origin: *");
 
- class Member {
-    public $email;
-    public $member_password;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (!empty($_POST["email"]) && !empty($_POST["password"])) {
+        fetch_data();
+    } else {
+        if (empty($_POST["email"])) {
+            echo "<script>
+                alert('Please enter in your email address');
+            </script>";
+        }
+        else {
+            echo "<script>
+                alert('Please enter in your password');
+            </script>";
+        }
+    }
+
 }
 
-function fetchData(){
+function fetch_data(){
+
+    $personalMessageArray = ['Have A Great Gym Session!', 'Go Get Those Gains!', 'You Going To Do Great Today!'];
+
+    $member = false;
+
+    $email = $_POST["email"];
+    $member_password = $_POST["password"];
+
     $host = 'localhost';
     $username = 'root';
     $password = 'password';
@@ -18,25 +39,36 @@ function fetchData(){
         die("Connection error: " . mysqli_connect_errno());
     }
 
-    $sql = "SELECT email, member_password FROM fitworks_members";
+    $sql = "SELECT * FROM fitworks_members";
 
     $result = mysqli_query($conn, $sql);
 
-    $people = array();
+    while ($row = mysqli_fetch_array($result)){
+        if ($email == $row['email'] && $member_password == $row['member_password']){
+            $member = true;
 
-    while($row = mysqli_fetch_assoc($result))
-    {
-        $member = new Member();
-        $member->email = $row['email'];
-        $member->member_password = $row['member_password'];
+            $randomNumber = rand(0, sizeof($personalMessageArray) - 1);
 
-        $people[] = $member;
+            $name = $row['first_name'];
+            $surname = $row['last_name'];            
+
+            echo "<script>
+                alert('Welcome $name $surname, $personalMessageArray[$randomNumber]');
+            </script>";
+
+            return;
+        }
     }
 
-    var_dump($people);
+    if(!$member){
+        echo "<script>
+                alert('You Do Not Have A Membership');
+            </script>";
+    }
 
     mysqli_close($conn);
-    return $people;
+    return;
 }
+
 
 ?>

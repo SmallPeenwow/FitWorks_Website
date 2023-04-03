@@ -11,36 +11,25 @@
 </head>
 <body>
     <div class="container">
-        <div class="display_container" id="display_container">
-            <div class="display_messages" id="display_messages">
-                <h3 id="message_title">Error</h3>
-                <div id="message_response">
-                    <p id="message_change">Welcome</p>
-                    <p id="person_message"></p>
-                </div>
-                <div class="button_container">
-                    <button id="display_button">OK</button>
-                </div>
-            </div>
-        </div>
-
+        
         <h1 class="title">FitWorks GYM</h1>
-        <form action="" id="loginForm" method="GET">
+        <form action="http://localhost:3000/src/index.php" id="loginForm" method="post" target="_target">
             <h3>Login To FitWorks</h3>
             <div class="container_child input-field">
                 <label for="email">Please enter your email address:</label>
-                <input type="text" id="email" placeholder="Enter email">
+                <input type="text" id="email" name="email" placeholder="Enter email">
             </div>
 
             <div class="container_child input-field">
                 <label for="password">Please enter your password:</label>
-                <input type="password" id="password" placeholder="Enter password">
+                <input type="password" id="password" name="password" placeholder="Enter password">
             </div>
 
             <div class="container_child submit">
                 <button id="submit" type="submit">Login</button>
             </div>
         </form>
+        
     </div>
 </body>
 </html>

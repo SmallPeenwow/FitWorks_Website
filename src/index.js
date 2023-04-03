@@ -33,48 +33,77 @@ const loginMessage = document.querySelector('#message_change');
 const messageTitle = document.querySelector('#message_title');
 const personalMessage = document.querySelector('#person_message');
 
-loginForm.addEventListener('submit', (e) => {
-	e.preventDefault();
+// loginForm.addEventListener('submit', (e) => {
+// e.preventDefault();
 
-	postData();
+// let xmlhttp = new XMLHttpRequest();
+// xmlhttp.onreadystatechange = function () {
+// 	if (this.readyState == 4 && this.status == 200) {
+// 		console.log(this.responseText);
+// 	}
+// };
 
-	// $.ajax({
-	// 	method: 'GET',
-	// 	url: 'http://127.0.0.1:5500//src/index.php',
-	// 	data: { method: 'fetchData' },
-	// 	success: function (response) {
-	// 		console.log(response);
-	// 	},
-	// });
+// xmlhttp.open('GET', 'index.php?fetchData', true);
+// xmlhttp.send();
 
-	// fetch('/src/index.php', {
-	// 	method: 'GET',
-	// 	body: {
-	// 		action: 'fetchData',
-	// 	},
-	// })
-	// 	.then((response) => response.text())
-	// 	.then((res) => console.log(res));
-	//FillUsers();
+//postData();
 
-	// let memberEmail = document.querySelector('#email');
-	// let memberPassword = document.querySelector('#password');
+// $.get('/src/index.php?fetchData', function (data) {
+// 	console.log(data);
+// });
 
-	// if (isEmptyOrSpaces(memberEmail.value) || isEmptyOrSpaces(memberPassword.value)) {
-	// 	alert('Please enter in your Details');
-	// } else {
-	// 	CheckUsers(memberEmail.value, memberPassword.value);
-	// 	containerMessage.style.display = 'block';
-	// }
-});
+// $.ajax({
+// 	url: 'http://127.0.0.1:5500/src/index.php',
+// 	type: 'POST',
+// 	dataType: 'json',
+// 	success: function (result) {
+// 		console.log(result);
+// 	},
+// });
 
-async function postData() {
-	const response = await fetch('http://127.0.0.1:5500//src/index.php');
+// $.ajax({
+// 	url: 'http://localhost:3000/src/index.php',
+// 	type: 'GET',
+// 	dataType: 'json',
+// 	data: { action: 'fetchData' },
+// 	success: function (response) {
+// 		const json = JSON.stringify(response);
 
-	const data = await response.text();
+// 		console.log(json);
+// 	},
+// 	error: function (xhr, status, error) {
+// 		console.error(status + ': ' + error);
+// 	},
+// });
 
-	console.log(data);
-}
+// fetch('/src/index.php', {
+// 	method: 'GET',
+// 	body: {
+// 		action: 'fetchData',
+// 	},
+// })
+// 	.then((response) => response.text())
+// 	.then((res) => console.log(res));
+//FillUsers();
+
+// let memberEmail = document.querySelector('#email');
+// let memberPassword = document.querySelector('#password');
+
+// if (isEmptyOrSpaces(memberEmail.value) || isEmptyOrSpaces(memberPassword.value)) {
+// 	alert('Please enter in your Details');
+// } else {
+// 	CheckUsers(memberEmail.value, memberPassword.value);
+// 	containerMessage.style.display = 'block';
+// }
+// });
+
+// async function postData() {
+// 	const response = await fetch('http://127.0.0.1:5500//src/index.php');
+
+// 	const data = await response.text();
+
+// 	console.log(data);
+// }
 
 const isEmptyOrSpaces = (value) => {
 	return value === null || value.match(/^ *$/) !== null;
